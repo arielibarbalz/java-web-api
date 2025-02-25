@@ -20,9 +20,10 @@ public class ProductoDTO {
 		
 	}
 
-	private void setId(Long id2) {
-		if(id == null || id<0) {
-			throw new IllegalArgumentException("Id no puede ser nulo ni menor a 0");
+	private void setId(Long id) {
+		//guards
+		if(id == null || id < 0) {
+			throw new IllegalArgumentException("Id no puede ser nulo ni menor a 0"); //runtime
 		}
 		this.id = id;
 	}
@@ -38,5 +39,11 @@ public class ProductoDTO {
 	public Double getPrecio() {
 		return precio;
 	}
+
+	@Override
+	public String toString() {
+		return "{id=" + id + ", titulo=" + titulo + ", precio=" + precio + "}";
+	}
+	
 
 }
